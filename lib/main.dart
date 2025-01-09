@@ -99,12 +99,19 @@ class _HomePageState extends State<HomePage> {
                     children: [
                       makeItem(
                         image: 'assets/images/one.jpg',
+                        title: 'Paris',
                       ),
                       makeItem(
                         image: 'assets/images/two.jpg',
+                        title: 'New York',
                       ),
                       makeItem(
                         image: 'assets/images/three.jpg',
+                        title: 'Venice',
+                      ),
+                      makeItem(
+                        image: 'assets/images/five.jpg',
+                        title: 'Venice',
                       ),
                     ],
                   ),
@@ -117,7 +124,7 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  Widget makeItem({image}) {
+  Widget makeItem({image, title}) {
     return AspectRatio(
       aspectRatio: 1 / 1,
       child: Container(
@@ -127,6 +134,31 @@ class _HomePageState extends State<HomePage> {
           image: DecorationImage(
             image: AssetImage(image),
             fit: BoxFit.cover,
+          ),
+        ),
+        child: Container(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(20),
+            gradient: LinearGradient(
+              begin: Alignment.bottomRight,
+              colors: [
+                Colors.black.withOpacity(.8),
+                Colors.black.withOpacity(.1),
+              ],
+            ),
+          ),
+          child: Align(
+            alignment: Alignment.bottomLeft,
+            child: Padding(
+              padding: const EdgeInsets.all(15),
+              child: Text(
+                title,
+                style: const TextStyle(
+                  color: Colors.white,
+                  fontSize: 20,
+                ),
+              ),
+            ),
           ),
         ),
       ),
