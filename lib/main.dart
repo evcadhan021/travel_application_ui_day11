@@ -75,7 +75,7 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
           Container(
@@ -92,10 +92,43 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
                 const SizedBox(height: 20),
+                Container(
+                  height: 200,
+                  child: ListView(
+                    scrollDirection: Axis.horizontal,
+                    children: [
+                      makeItem(
+                        image: 'assets/images/one.jpg',
+                      ),
+                      makeItem(
+                        image: 'assets/images/two.jpg',
+                      ),
+                      makeItem(
+                        image: 'assets/images/three.jpg',
+                      ),
+                    ],
+                  ),
+                )
               ],
             ),
           )
         ],
+      ),
+    );
+  }
+
+  Widget makeItem({image}) {
+    return AspectRatio(
+      aspectRatio: 1 / 1,
+      child: Container(
+        margin: const EdgeInsets.only(right: 20),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(20),
+          image: DecorationImage(
+            image: AssetImage(image),
+            fit: BoxFit.cover,
+          ),
+        ),
       ),
     );
   }
